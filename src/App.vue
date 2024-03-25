@@ -21,9 +21,9 @@
       getApi(){
         axios.get(this.store.apiUrl, {
           params:{
-            num: 20,
+            num: 25,
             offset: 0,
-            
+            language: 'it'
           }
         })
       .then(result => {

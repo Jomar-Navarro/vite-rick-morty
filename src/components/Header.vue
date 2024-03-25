@@ -11,8 +11,8 @@
 
 
 <template>
-  <div class="text-center">
-    Header
+  <div class="text-center my-3">
+    <h1>{{ store.mainTitle }}</h1>
   </div>
 </template>
 

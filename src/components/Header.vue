@@ -12,7 +12,7 @@
 
 <template>
   <div class="text-center my-3">
-    <h1>{{ store.mainTitle }}</h1>
+    <h1 class="text-white">{{ store.mainTitle }}</h1>
   </div>
 </template>
 

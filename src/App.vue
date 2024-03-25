@@ -52,9 +52,12 @@
 
 <style lang="scss">
   body{
-    background: rgb(63,94,251);
-    background: 
-    linear-gradient(90deg, rgba(63,94,251,1) 0%,
-    rgba(252,70,107,1) 100%);
+    background-image: 
+    linear-gradient(to bottom,
+    #051937, 
+    #3e205b, 
+    #850464, 
+    #c5004c, 
+    #eb1212);
   }
 </style>

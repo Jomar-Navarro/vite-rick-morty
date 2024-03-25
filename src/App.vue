@@ -21,13 +21,13 @@
       getApi(){
         axios.get(this.store.apiUrl, {
           params:{
-            num: 25,
+            num: 20,
             offset: 0,
             language: 'it'
           }
         })
       .then(result => {
-        this.store.cardsList = result.data.data;
+        this.store.cardsList = result.data.results;
         console.log(this.store.cardsList);
       })
       .catch(error => {

@@ -5,6 +5,7 @@
     components:{
       Card,
     },
+    
     data(){
       return{
         store
@@ -16,7 +17,17 @@
 
 <template>
   <div class="container text-center my-3">
-    <Card v-for="card in this.store.cardsList" :key="card.id" />
+    <div class="row row-cols-2 d-flex justify-content-center">
+      <Card 
+        class="m-3"
+        v-for="card in this.store.cardsList"
+        :key="card.id"
+        :name="card.name"
+        :status="card.status"
+        :species="card.species"
+        :image="card.image"
+      />
+    </div>
   </div>
 </template>
 

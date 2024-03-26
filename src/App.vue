@@ -19,6 +19,7 @@
 
     methods:{
       getApi(){
+        this.store.errorString = '';
         axios.get(this.store.apiUrl, {
           params: store.queryParams
         })
@@ -28,6 +29,7 @@
       })
       .catch(error => {
         console.log(error);
+        this.store.errorString = 'Character not found'
       })
       },
 

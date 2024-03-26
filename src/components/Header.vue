@@ -17,7 +17,6 @@
         this.store.queryParams= {
           name: this.characterToSearch
         }
-        if (this.characterToSearch.length > 0) this.store.queryParams.characterToSearch = this.characterToSearch;
         this.$emit('startSearch')
       }
     }

@@ -20,11 +20,7 @@
     methods:{
       getApi(){
         axios.get(this.store.apiUrl, {
-          params:{
-            num: 20,
-            offset: 0,
-            language: 'it'
-          }
+          params: store.queryParams
         })
       .then(result => {
         this.store.cardsList = result.data.results;
@@ -33,11 +29,21 @@
       .catch(error => {
         console.log(error);
       })
+      },
+
+      getAllCharacter(){
+        axios.get(this.store.characterUrl)
+        .then(res => {
+          console.log(res.data.results);
+          this.store.characterList = res.data.results.map(item => item.name)
+          console.log(this.store.characterList);
+        })
       }
     },
 
     mounted(){
       this.getApi()
+      this.getAllCharacter()
     }
   }
 </script>

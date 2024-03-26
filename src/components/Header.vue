@@ -14,7 +14,15 @@
   <div class="text-center my-3 container">
     <h1 class="text-white">{{ store.mainTitle }}</h1>
     <div class="d-flex my-5 justify-content-center">
-      <input type="text" class="form-control w-25" placeholder="Search Character">
+
+      <input class="form-control w-25" list="datalistOptions" id="exampleDataList" placeholder="Type to search a name...">
+      <datalist id="datalistOptions">
+        <option
+        v-for="(character, index) in this.store.characterList"
+        :key="index"
+        :value="character"></option>
+      </datalist>
+
       <select class="form-select mx-3 w-25">
         <option selected>Select status</option>
         <option value="1">Alive</option>

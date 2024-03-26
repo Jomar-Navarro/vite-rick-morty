@@ -4,6 +4,20 @@
     data(){
       return{
         store,
+        characterToSearch: '',
+      }
+    },
+
+    methods:{
+      startSearch(){
+        console.log('Ricerca');
+        this.store.queryParams= {
+          num: 20,
+          offset: 0,
+          language: 'en',
+          name: this.characterToSearch
+        }
+        this.$emit('startSearch')
       }
     }
   }
@@ -15,7 +29,15 @@
     <h1 class="text-white">{{ store.mainTitle }}</h1>
     <div class="d-flex my-5 justify-content-center">
 
-      <input class="form-control w-25" list="datalistOptions" id="exampleDataList" placeholder="Type to search a name...">
+      <input
+        v-model.trim="characterToSearch"
+        @keyup.enter="startSearch"
+        class="form-control w-25"
+        list="datalistOptions"
+        id="exampleDataList"
+        placeholder="Type to search a name..."
+        >
+
       <datalist id="datalistOptions">
         <option
         v-for="(character, index) in this.store.characterList"

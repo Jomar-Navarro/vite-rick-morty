@@ -50,7 +50,7 @@
 
 <template>
   <div>
-    <Header />
+    <Header @startSearch="getApi" />
     <Main />
     <Footer />
   </div>

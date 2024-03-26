@@ -7,7 +7,6 @@
 
 <template>
   <div class="text-center">
-    Footer
   </div>
 </template>
 

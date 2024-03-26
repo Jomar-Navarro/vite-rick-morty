@@ -9,8 +9,11 @@
     },
 
     methods:{
+      reset(){
+        this.characterToSearch = ''
+      },
+
       startSearch(){
-        console.log('Ricerca');
         this.store.queryParams= {
           num: 20,
           offset: 0,
@@ -30,11 +33,19 @@
     <h1 class="text-white">{{ store.mainTitle }}</h1>
     <div class="d-flex my-5 justify-content-center">
 
-      <input v-model.trim="characterToSearch" @keyup.enter="startSearch" class="form-control w-25"
-        list="datalistOptions" id="exampleDataList" placeholder="Type to search a name...">
+      <input
+        v-model.trim="characterToSearch"
+        @keyup.enter="startSearch"
+        class="form-control w-25"
+        list="datalistOptions"
+        id="exampleDataList"
+        placeholder="Type to search a name...">
 
       <datalist id="datalistOptions">
-        <option v-for="(character, index) in this.store.characterList" :key="index" :value="character"></option>
+        <option
+          v-for="(character, index) in this.store.characterList"
+          :key="index"
+          :value="character"></option>
       </datalist>
 
       <select class="form-select mx-3 w-25">
@@ -44,7 +55,7 @@
         <option value="3">Unknown</option>
       </select>
       <button @click="startSearch" class="btn btn-success">Search</button>
-      <button class="btn btn-danger mx-3">Reset</button>
+      <button @click="reset" class="btn btn-danger mx-3">Reset</button>
     </div>
 
   </div>

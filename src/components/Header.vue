@@ -15,9 +15,6 @@
 
       startSearch(){
         this.store.queryParams= {
-          num: 20,
-          offset: 0,
-          language: 'en',
           name: this.characterToSearch
         }
         if (this.characterToSearch.length > 0) this.store.queryParams.characterToSearch = this.characterToSearch;

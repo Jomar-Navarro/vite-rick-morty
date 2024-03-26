@@ -60,6 +60,7 @@
 
 <style lang="scss">
   body{
+    min-height: 100vh;
     background-image: 
     linear-gradient(to bottom,
     #051937, 

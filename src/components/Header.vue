@@ -10,7 +10,8 @@
 
     methods:{
       reset(){
-        this.characterToSearch = ''
+        this.characterToSearch = '';
+        this.startSearch();
       },
 
       startSearch(){

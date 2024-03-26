@@ -5,6 +5,7 @@
       return{
         store,
         characterToSearch: '',
+        statusToSearch: '',
       }
     },
 
@@ -16,9 +17,14 @@
 
       startSearch(){
         this.store.queryParams= {
-          name: this.characterToSearch
+          name: this.characterToSearch,
+          status: this.statusToSearch
         }
         this.$emit('startSearch')
+      },
+
+      startStatus(){
+        this.startSearch();
       }
     }
   }
@@ -45,7 +51,7 @@
           :value="character"></option>
       </datalist>
 
-      <select class="form-select mx-3 w-25">
+      <select @change="startStatus" class="form-select mx-3 w-25">
         <option selected>Select status</option>
         <option value="1">Alive</option>
         <option value="2">Dead</option>

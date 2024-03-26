@@ -40,19 +40,31 @@
           this.store.characterList = res.data.results.map(item => item.name)
           console.log(this.store.characterList);
         })
+      },
+
+      getAllCharacterStatus() {
+        axios.get(this.store.apiUrl)
+          .then(res => {
+            console.log(res.data.results);
+            this.store.characterListStatus = res.data.results.map(item => item.status)
+            console.log(this.store.characterListStatus);
+          })
       }
     },
 
     mounted(){
       this.getApi()
       this.getAllCharacter()
+      this.getAllCharacterStatus()
     }
   }
 </script>
 
 <template>
   <div>
-    <Header @startSearch="getApi" />
+    <Header @startSearch="getApi"
+            @startStatus="getApi"
+    />
     <Main />
     <Footer />
   </div>

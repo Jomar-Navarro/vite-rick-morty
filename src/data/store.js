@@ -8,8 +8,8 @@ export const store = reactive({
   characterList: [],
   errorString: '',
   queryParams: {
-    num: 20,
-    offset: 0,
-    language: 'en',
+  name: '',
+  status: '',
+  species: '',
   }
 })

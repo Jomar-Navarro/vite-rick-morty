@@ -42,29 +42,27 @@
         })
       },
 
-      getAllCharacterStatus() {
+      getAllSpecies() {
         axios.get(this.store.apiUrl)
           .then(res => {
             console.log(res.data.results);
-            this.store.characterListStatus = res.data.results.map(item => item.status)
-            console.log(this.store.characterListStatus);
+            this.store.characterSpecies = [...new Set(res.data.results.map(spec => spec.species))]
+            console.log(this.store.characterSpecies);
           })
-      }
+      },
     },
 
     mounted(){
       this.getApi()
       this.getAllCharacter()
-      this.getAllCharacterStatus()
+      this.getAllSpecies()
     }
   }
 </script>
 
 <template>
   <div>
-    <Header @startSearch="getApi"
-            @startStatus="getApi"
-    />
+    <Header @startSearch="getApi" />
     <Main />
     <Footer />
   </div>

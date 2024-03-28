@@ -5,27 +5,34 @@
       return{
         store,
         characterToSearch: '',
-        statusToSearch: '',
+        statusToSearch: 'Select status',
+        speciesToSearch: '',
       }
     },
 
     methods:{
       reset(){
         this.characterToSearch = '';
+        this.statusToSearch = 'Alive';
+        this.speciesToSearch = ''
         this.startSearch();
       },
 
       startSearch(){
-        this.store.queryParams= {
-          name: this.characterToSearch,
-          status: this.statusToSearch
+        if (this.characterToSearch || this.statusToSearch || this.speciesToSearch){
+          this.store.queryParams = {
+            name: this.characterToSearch,
+            status: this.statusToSearch,
+            species: this.speciesToSearch
+          }
+          this.$emit('startSearch')
+          console.log(this.store.queryParams);
+        }else{
+          this.store.queryParams = {};
+          this.$emit('startSearch')
         }
-        this.$emit('startSearch')
-      },
 
-      startStatus(){
-        this.startSearch();
-      }
+      },
     }
   }
 </script>
@@ -36,29 +43,29 @@
     <h1 class="text-white">{{ store.mainTitle }}</h1>
     <div class="d-flex my-5 justify-content-center">
 
-      <input
-        v-model.trim="characterToSearch"
-        @keyup.enter="startSearch"
-        class="form-control w-25"
-        list="datalistOptions"
-        id="exampleDataList"
-        placeholder="Type to search a name...">
+      <input v-model.trim="characterToSearch" @keyup.enter="startSearch" class="form-control w-25"
+        list="datalistOptions" id="exampleDataList" placeholder="Type to search a name...">
 
       <datalist id="datalistOptions">
-        <option
-          v-for="(character, index) in this.store.characterList"
-          :key="index"
-          :value="character"></option>
+        <option v-for="(character, index) in this.store.characterList" :key="index" :value="character"></option>
       </datalist>
 
-      <select @change="startStatus" class="form-select mx-3 w-25">
+      <select v-model.trim="statusToSearch" @change="startSearch" class="form-select mx-3 w-25">
         <option selected>Select status</option>
-        <option value="1">Alive</option>
-        <option value="2">Dead</option>
-        <option value="3">Unknown</option>
+        <option value="Alive">Alive</option>
+        <option value="Dead">Dead</option>
+        <option value="Unknown">Unknown</option>
       </select>
-      <button @click="startSearch" class="btn btn-success">Search</button>
-      <button @click="reset" class="btn btn-danger mx-3">Reset</button>
+
+      <input v-model.trim="speciesToSearch" @keyup.enter="startSearch" class="form-control w-25"
+        list="datalistOptionsSpecies" id="exampleDataList" placeholder="Type to search a species...">
+
+      <datalist id="datalistOptionsSpecies">
+        <option v-for="(character, index) in this.store.characterSpecies" :key="index" :value="character"></option>
+      </datalist>
+
+      <button @click="startSearch" class="btn btn-success mx-3">Search</button>
+      <button @click="reset" class="btn btn-danger">Reset</button>
     </div>
 
   </div>

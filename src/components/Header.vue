@@ -44,7 +44,7 @@
     <div class="d-flex my-5 justify-content-center">
 
       <input v-model.trim="characterToSearch" @keyup.enter="startSearch" class="form-control w-25"
-        list="datalistOptions" id="exampleDataList" placeholder="Type to search a name...">
+        id="exampleDataList" placeholder="Type to search a name...">
 
       <datalist id="datalistOptions">
         <option v-for="(character, index) in this.store.characterList" :key="index" :value="character"></option>

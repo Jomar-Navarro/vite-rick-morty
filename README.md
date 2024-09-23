@@ -2,7 +2,7 @@
 
 Rick & Morty Character Finder è un'applicazione che consente di cercare e filtrare i personaggi della serie Rick & Morty. L'app utilizza l'API Rick and Morty per recuperare i dati sui personaggi e mostrare informazioni dettagliate, come lo stato di vita e la specie.
 
-![Rick & Morty Screenshot](public/img/screenshot.png)
+![Rick & Morty Screenshot](./public/img/Screenshot.png)
 
 ## Funzionalità principali
 
